@@ -6,8 +6,7 @@ Aluno: André Werlang Menegazzo
 ## Objetivos
 O objetivo deste trabalho consiste na criação de uma biblioteca simples em 
 python que apresente funcionalidades da biblioteca Numpy, especialmente a
-manipulação de arrays, álgebra linear e geração de números pseudo-aleatórios,
-com aplicações em amostragem. 
+manipulação de arrays, álgebra linear e geração de números pseudo-aleatórios. 
 
 Além disso, este projeto tem como objetivo a prática de gestão de projetos 
 de python, como a criação e versionamento de bibliotecas.
@@ -23,21 +22,25 @@ de python, como a criação e versionamento de bibliotecas.
 
     moore_penrose_gen_inv()
 
+
 3. Função que calcula os coeficientes de uma regressão linear com a inversa generalizada de Moore-Penrose ao invés da inversa convencional. 
 
 
     betas_linreg_moore_penrose()
+
 
 ## Exemplos de uso
     
     import numpy as np
     from est_numpy_awm import funcoes
 
+
 1. Gerar amostra uniforme multivariada
     
 
     X = funcoes.rand_multivariate_uniform(n=100, p=3, seed=42)
     print(X)
+
 
 
 2. Calcular a pseudoinversa de Moore-Penrose
@@ -48,12 +51,14 @@ de python, como a criação e versionamento de bibliotecas.
     print(A_gen_inv)
 
 
+
 3. Estimar coeficientes de regressão linear
 
 
     y = np.array([1, 2])
     beta = funcoes.linear_regression_coefficients(A, y)
     print(beta)
+
 
 ## Como instalar
 Para instalar esta biblioteca:
