@@ -64,11 +64,8 @@ class TestMoorePenroseGenInv:
         """Testa com matriz singular"""
         A = np.array([[1, 2], [1, 2], [1, 2]], dtype=float)
         A_pinv = moore_penrose_gen_inv(A)
-
-        # Deve conseguir calcular sem erro
         assert A_pinv.shape == (2, 3)
 
-        # Verifica propriedade fundamental
         A_reconstruida = A @ A_pinv @ A
         np.testing.assert_allclose(A, A_reconstruida, atol=1e-10)
 
@@ -77,7 +74,6 @@ class TestMoorePenroseGenInv:
         A = np.array([[1e-13, 0], [0, 1]], dtype=float)
         A_pinv = moore_penrose_gen_inv(A, tol=1e-12)
 
-        # O valor singular muito pequeno deve ser tratado como zero
         expected = np.array([[0, 0], [0, 1]])
         np.testing.assert_allclose(A_pinv, expected, atol=1e-12)
 
@@ -92,7 +88,7 @@ class TestBetasLinregMoorePenrose:
         y = np.array([3, 5, 7])
 
         beta = betas_linreg_moore_penrose(X, y)
-        expected = np.array([1.0, 2.0])  # intercepto, slope
+        expected = np.array([1.0, 2.0])
         np.testing.assert_allclose(beta, expected, atol=1e-12)
 
     def test_multiplas_covariaveis(self):
@@ -108,25 +104,24 @@ class TestBetasLinregMoorePenrose:
 
     def test_matriz_singular(self):
         """Testa regressão com matriz singular (colinearidade)"""
-        # Colinearidade perfeita
-        X = np.array([[1, 2], [2, 4], [3, 6]])  # segunda coluna = 2 * primeira
+
+        X = np.array([[1, 2], [2, 4], [3, 6]])
         y = np.array([1, 2, 3])
 
-        # Não deve levantar exceção
         beta = betas_linreg_moore_penrose(X, y)
         assert beta.shape == (3,)  # intercepto + 2 coeficientes
 
     def test_erro_dimensoes_incompativeis(self):
         """Testa erro para dimensões incompatíveis"""
         X = np.random.randn(10, 3)
-        y = np.random.randn(8)  # tamanho diferente
+        y = np.random.randn(8)
 
         with pytest.raises(ValueError, match="X e y devem ter o mesmo número de observações"):
             betas_linreg_moore_penrose(X, y)
 
     def test_intercepto_correto(self):
         """Testa se o intercepto está sendo calculado corretamente"""
-        # Dados com intercepto não-zero
+
         X = np.array([[1], [2], [3]])
         y = np.array([4, 5, 6])  # y = x + 3
 
@@ -137,15 +132,10 @@ class TestBetasLinregMoorePenrose:
 
 def test_integracao_completa():
     """Teste de integração de todas as funções"""
-    # Gerar dados
+
     X = rand_multivariate_uniform(100, 3, seed=42)
 
-    # Criar y com relação linear conhecida
     beta_true = np.array([2.0, 3.0, -1.0, 1.5])  # intercepto + 3 coefs
     y = X @ beta_true[1:] + beta_true[0] + np.random.randn(100) * 0.01
-
-    # Calcular coeficientes
     beta_estimado = betas_linreg_moore_penrose(X, y)
-
-    # Verificar se está próximo dos valores verdadeiros
     np.testing.assert_allclose(beta_estimado, beta_true, atol=0.1)

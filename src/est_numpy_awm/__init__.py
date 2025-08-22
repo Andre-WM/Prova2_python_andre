@@ -1,5 +1,5 @@
 """
-est-numpy-awm - Uma biblioteca de funções estatísticas usando numpy
+est_numpy_awm - Uma biblioteca de funções estatísticas usando numpy
 """
 
 from .funcoes import (

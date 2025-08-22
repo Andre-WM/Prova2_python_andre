@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "est-numpy-awm"
+name = "est_numpy_awm"
 version = "0.1.0"
 description = "Uma biblioteca simples com funções estatísticas usando numpy, com intuito de aprendizado."
 readme = "README.md"
