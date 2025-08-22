@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "est-numpy-awm"
+version = "0.1.0"
+description = "Uma biblioteca simples com funções estatísticas usando numpy, com intuito de aprendizado."
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
+authors = [
+    {name = "André Werlang Menegazzo", email = "andre.menegazzo@academico.ufpb.br"}
+]
+keywords = ["estatistica", "numpy", "algebra-linear", "projeto-educacional"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Education",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+
+dependencies = [
+    "numpy>=2.3.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/Andre-WM/Prova2_python_andre"
+Repository = "https://github.com/Andre-WM/Prova2_python_andre"
+Documentation = "https://github.com/Andre-WM/Prova2_python_andre/blob/main/README.md"
+Issues = "https://github.com/Andre-WM/Prova2_python_andre/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = {find = {where = ["src"]}}

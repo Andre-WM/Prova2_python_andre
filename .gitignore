@@ -1,0 +1,39 @@
+# ==========================
+# AMBIENTES VIRTUAIS
+# ==========================
+.venv/
+venv/
+ENV/
+
+# ==========================
+# DISTRIBUIÇÃO / EMPACOTAMENTO
+# ==========================
+dist/
+build/
+*.egg-info/
+
+# ==========================
+# CACHES E ARQUIVOS TEMPORÁRIOS DO PYTHON
+# ==========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ==========================
+# ARQUIVOS DE LOGS / TEMPORÁRIOS
+# ==========================
+*.log
+*.tmp
+
+# ==========================
+# CONFIGURAÇÕES LOCAIS DO PYCHARM
+# ==========================
+.idea/
+
+# ==========================
+# JUPYTER NOTEBOOK CHECKPOINTS (caso use notebooks)
+# ==========================
+.ipynb_checkpoints/
+
+
